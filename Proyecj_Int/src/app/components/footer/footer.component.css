@@ -1,5 +1,5 @@
 .row{
-    background-color: #34004d;
+    background: linear-gradient(to right, #0c004d, #0d0022,#34004d);
 }
 footer{
     color: #fefefe;
