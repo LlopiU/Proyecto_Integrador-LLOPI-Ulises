@@ -1,33 +1,29 @@
 <div class="row">
-    <h1 style="color: white;">Educacion</h1>
-        <div class="col-lg-1" style="background:#0c004d;"></div>
-        <div class="col-lg-11">
-            <ul>
-                <li style="color: white;">
-                    <h1 style="color: white;">Estudio 1 </h1> -
-                    <h3 style="color: white;">(years)</h3>
-                </li>
-                <p style="color: white;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum saepe vero consequuntur quidem, iure soluta non totam, excepturi dignissimos optio incidunt consequatur reprehenderit possimus amet! Aut at reiciendis quam enim.
-                </p>
-            </ul>
-            <ul>
-                <li style="color: white;">
-                    <h1 style="color: white;">Estudio 2 </h1> -
-                    <h3 style="color: white;">(years)</h3>
-                </li>
-                <p style="color: white;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum saepe vero consequuntur quidem, iure soluta non totam, excepturi dignissimos optio incidunt consequatur reprehenderit possimus amet! Aut at reiciendis quam enim.
-                </p>
-            </ul>
-            <ul>
-                <li style="color: white;">
-                    <h1 style="color: white;">Estudio 3 </h1> -
-                    <h3 style="color: white;">(years)</h3>
-                </li>
-                <p style="color: white;">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum saepe vero consequuntur quidem, iure soluta non totam, excepturi dignissimos optio incidunt consequatur reprehenderit possimus amet! Aut at reiciendis quam enim.
-                </p>
-            </ul>
-         </div>
+  <h1 style="color: white;">Educacion</h1>
+    <div class="col-lg-2">
+      <button type="button" class="btn btn-info" routerLink="/nuevaedu" *ngIf="isLogged">
+        Nueva Educacion
+      </button>
+    </div>
+  <div class="col lg 1"></div>
+  <div class="col-lg-11">
+    <table class="table">
+      <tbody>
+          <tr *ngFor="let Educacion of educacion">
+            <td><h2>{{Educacion.nombreE}}</h2></td>
+            <td>{{Educacion.descripcionE}}</td>
+              <td *ngIf="isLogged">
+                <button class="btn btn-succes" routerLink="/editedu/{{Educacion.id}}">
+                  <i class="bi bi-pencil-fill"></i>EDITAR
+                </button>
+              </td>
+            <td *ngIf="isLogged">
+              <button class="btn btn-danger" (click)="delete(Educacion.id)">
+                <i class="bi bi-trash-fill"></i>Borrar</button>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
