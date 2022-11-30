@@ -1,12 +1,19 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.portfolio.mgb.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-
+/**
+ *
+ * @author llopi
+ */
 public class dtoHys {
-   @NotBlank
+    @NotBlank
     private String nombre;
-   @NotBlank
+    @NotBlank
     private int porcentaje;
 
     public dtoHys() {
@@ -32,5 +39,6 @@ public class dtoHys {
     public void setPorcentaje(int porcentaje) {
         this.porcentaje = porcentaje;
     }
-   
+    
+    
 }

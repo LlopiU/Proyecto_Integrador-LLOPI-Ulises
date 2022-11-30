@@ -1,28 +1,30 @@
-import { Observable } from 'rxjs';
-import { HttpEvent, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TokenService } from 'src/app/service/token.service';
-import { Injectable } from '@angular/core';
+import { HttpEvent, HttpHandler, HttpRequest, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { createInjectableType } from "@angular/compiler";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { TokenService } from "./token.service";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class InterceptorService {
-  constructor(private tokenService: TokenService){  }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let intReq = req;
-    const token = this.tokenService.getToken();
-    if(token != null){
-      intReq = req.clone({
-        headers: req.headers.set('Authorization','Bearer'+token)
-      });
-    }
-    return next.handle(intReq);
+    constructor(private tokenService: TokenService){}
 
-  }
+    Intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+        let intReq= req;
+        const token = this.tokenService.getToken();
+
+        if(token != null){
+            intReq= req.clone({
+                headers: req.headers.set('Authorization','Bearer'+token)
+            });
+        }
+        return next.handle(intReq);
+    }
 }
 
-export const interceptorProvider = [{
+export const interceptorProvider =[{
     provide: HTTP_INTERCEPTORS,
-    userClass: InterceptorService,
+    useClass: InterceptorService,
     multi: true
 }];
