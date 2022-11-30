@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.portfolio.mgb.Controller;
 
 import com.portfolio.mgb.Dto.dtoHys;
@@ -25,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("/hys")
+@RequestMapping("/skill")
 public class CHys {
     @Autowired
     Shys shys;
